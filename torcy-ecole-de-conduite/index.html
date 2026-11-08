@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+Direction artistique
+1. Quoi, pour qui, d'où : Torcy École de Conduite (C&S Auto-école), 7 avenue Jacques Prévert à Torcy, permis B en boîte manuelle, pour les jeunes du quartier et leurs parents, et les adultes qui reprennent. Pas de site, seulement des fiches. Univers de la route → bleu nuit, blanc, et le jaune des marquages au sol comme accent ; une ligne pointillée de route qui avance, c'est le seul motif.
+2. Ton : rassurant, concret, pas de promesse de taux de réussite ni de prix (inconnus).
+3. Références : godly.design/websites (fond sombre, titre géant, un accent vif), motionsites.ai?prompt=line-draw (tracé qui se dessine). Animation signature : la ligne de route pointillée qui défile sous le titre (stroke-dashoffset). Désactivé si prefers-reduced-motion.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Torcy École de Conduite, auto-école à Torcy</title>
+<meta name="description" content="Auto-école à Torcy, 7 avenue Jacques Prévert : permis B, code et conduite, près de la gare. Appelez le 09 63 40 14 18.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0f1a2e;--bg-2:#172540;--ink:#f3f5fa;--ink-2:#aab4c8;--jaune:#f2c230;--jaune-2:#d9ab1c;--line:rgba(243,245,250,.12);--r:14px}
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font:16px/1.55 Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+  h1,h2,h3{font-family:Sora,Inter,sans-serif;line-height:1.08;letter-spacing:-.02em}
+  a{color:inherit}
+  .wrap{width:min(100% - 32px,920px);margin-inline:auto}
+  .note{background:var(--jaune);color:#0f1a2e;font-size:13px;text-align:center;padding:8px 16px}
+  .note b{font-weight:600}
+  header{position:sticky;top:0;z-index:5;background:rgba(15,26,46,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+  .brand{font-family:Sora,sans-serif;font-weight:800;font-size:19px}
+  .brand span{color:var(--jaune)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;font-weight:600;text-decoration:none;background:var(--jaune);color:#0f1a2e;transition:background .15s}
+  .btn:hover{background:var(--jaune-2)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+  .btn.ghost:hover{background:var(--bg-2)}
+  .hero{padding:56px 0 24px;position:relative}
+  .kicker{color:var(--jaune);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+  .hero h1{font-size:clamp(36px,8.8vw,68px);margin:12px 0 16px;font-weight:800}
+  .hero p{color:var(--ink-2);font-size:18px;max-width:34ch}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  /* Animation signature : la ligne de route qui défile */
+  .route{display:block;width:100%;height:28px;margin:8px 0 36px}
+  .route .bord{stroke:var(--ink-2);stroke-width:2;opacity:.5}
+  .route .axe{stroke:var(--jaune);stroke-width:4;stroke-dasharray:28 22;animation:roule 1.6s linear infinite}
+  @keyframes roule{to{stroke-dashoffset:-50}}
+  .infos{display:grid;gap:12px;grid-template-columns:1fr;margin:8px auto 48px}
+  .card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+  .card h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);font-family:Inter,sans-serif;font-weight:600;margin-bottom:8px}
+  .card p{font-size:17px}
+  .card a{text-decoration:none;border-bottom:1px solid var(--jaune)}
+  @media (min-width:640px){.infos{grid-template-columns:repeat(3,1fr)}}
+  section{padding:40px 0;border-top:1px solid var(--line)}
+  section h2{font-size:clamp(28px,6vw,40px);margin-bottom:8px;font-weight:800}
+  .lead{color:var(--ink-2);max-width:48ch;margin-bottom:24px}
+  .etapes{display:grid;gap:10px}
+  .etape{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:16px 18px;border-radius:var(--r);background:var(--bg-2);border:1px solid var(--line)}
+  .etape b{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--jaune);color:#0f1a2e;font-family:Sora,sans-serif;font-weight:800}
+  .etape strong{font-family:Sora,sans-serif;font-size:18px;font-weight:700;display:block;margin:8px 0 4px}
+  .etape p{color:var(--ink-2)}
+  .venir{background:var(--jaune);color:#0f1a2e;border-radius:20px;padding:28px 22px;display:grid;gap:14px}
+  .venir h2{color:#0f1a2e}
+  .venir p{color:rgba(15,26,46,.8)}
+  .venir .btn{background:#0f1a2e;color:#fff}
+  .venir .btn:hover{background:#172540}
+  @media (min-width:640px){.venir{grid-template-columns:1fr auto;align-items:center;padding:36px}}
+  footer{padding:28px 0 40px;color:var(--ink-2);font-size:14px;border-top:1px solid var(--line)}
+  footer nav{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:10px}
+  footer a{text-decoration:none;border-bottom:1px solid var(--line)}
+  .hero h1 .w{display:inline-block;opacity:0;transform:translateY(.6em);animation:monte .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes monte{to{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}.btn{transition:none}
+    .route .axe{animation:none}
+    .hero h1 .w{opacity:1;transform:none;animation:none}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="note"><b>Maquette</b> proposée par EDFASTCODE pour Torcy École de Conduite, novembre 2026. Rien n'est en ligne sans votre accord.</div>
+<header>
+  <div class="wrap bar">
+    <div class="brand">Torcy <span>École de Conduite</span></div>
+    <a class="btn" href="tel:+33963401418">Appeler</a>
+  </div>
+</header>
+<main>
+  <div class="wrap hero">
+    <p class="kicker">Auto-école, Torcy</p>
+    <h1>Le permis B, à votre rythme, avenue Jacques Prévert</h1>
+    <p>Code et conduite en boîte manuelle, dans une auto-école de quartier. On vous explique les étapes et le planning au bureau ou au téléphone.</p>
+    <div class="cta">
+      <a class="btn" href="tel:+33963401418">09 63 40 14 18</a>
+      <a class="btn ghost" href="#etapes">Comment ça se passe</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <svg class="route" viewBox="0 0 920 28" preserveAspectRatio="none" aria-hidden="true">
+      <line class="bord" x1="0" y1="2" x2="920" y2="2"/>
+      <line class="axe" x1="0" y1="14" x2="920" y2="14"/>
+      <line class="bord" x1="0" y1="26" x2="920" y2="26"/>
+    </svg>
+  </div>
+  <div class="wrap infos">
+    <div class="card reveal"><h3>Horaires</h3><p>[À compléter]<br><span style="color:var(--ink-2);font-size:14px">Horaires du bureau et des leçons</span></p></div>
+    <div class="card reveal"><h3>Adresse</h3><p><a href="https://www.google.com/maps/search/?api=1&query=Torcy+Ecole+de+Conduite+7+avenue+Jacques+Pr%C3%A9vert+Torcy" target="_blank" rel="noopener">7, avenue Jacques Prévert<br>77200 Torcy</a></p></div>
+    <div class="card reveal"><h3>Contact</h3><p><a href="tel:+33963401418">09 63 40 14 18</a><br><a href="mailto:cstorcy@gmail.com">cstorcy@gmail.com</a></p></div>
+  </div>
+  <section id="etapes" class="wrap">
+    <h2>Les étapes du permis</h2>
+    <p class="lead">Le parcours classique du permis B. Vos formules et vos tarifs viendront ici.</p>
+    <div class="etapes">
+      <div class="etape"><b>1</b><div><strong>Inscription et dossier</strong><p>On monte votre dossier ensemble au bureau. [Pièces à fournir à compléter]</p></div></div>
+      <div class="etape"><b>2</b><div><strong>Le code</strong><p>Entraînement et passage de l'examen théorique. [Modalités à compléter]</p></div></div>
+      <div class="etape"><b>3</b><div><strong>La conduite</strong><p>Leçons en boîte manuelle avec votre moniteur, à votre rythme. [Formules à compléter]</p></div></div>
+      <div class="etape"><b>4</b><div><strong>L'examen</strong><p>Présentation à l'épreuve pratique quand vous êtes prêt. [À compléter]</p></div></div>
+    </div>
+  </section>
+  <section class="wrap">
+    <div class="venir">
+      <div>
+        <h2>Envie de commencer&nbsp;?</h2>
+        <p>Appelez ou passez au bureau, 7 avenue Jacques Prévert : on répond à vos questions et on vous donne un devis.</p>
+      </div>
+      <a class="btn" href="tel:+33963401418">Appeler l'auto-école</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <nav><a href="#">Mentions légales [à compléter]</a><a href="#">Politique de confidentialité [à compléter]</a></nav>
+    <p>Torcy École de Conduite, 7 avenue Jacques Prévert, 77200 Torcy. 09 63 40 14 18.</p>
+  </div>
+</footer>
+<script>
+  const h=document.querySelector('.hero h1');
+  h.innerHTML=h.textContent.trim().split(' ').map((w,i)=>`<span class="w" style="animation-delay:${80+i*60}ms">${w}</span>`).join(' ');
+  document.querySelectorAll('.etape,.venir').forEach(e=>e.classList.add('reveal'));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((e,i)=>{e.style.transitionDelay=`${(i%3)*70}ms`;io.observe(e)});
+</script>
+</body>
+</html>
