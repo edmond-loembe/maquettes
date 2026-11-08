@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--
+Direction artistique
+1. Quoi, pour qui, d'où : restaurant japonais de centre commercial (Bay 1, Torcy), familles et déjeuners de bureau, sur place et à emporter. Origine : Japon → palette laque rouge sur bois sombre, un mot en japonais en accent (寿司, sushi), pas de dragon ni de cliché.
+2. Ton : simple et direct, comme leur site actuel (horaires, -10 % à emporter, téléphone en gros).
+3. Références modernes : godly.design/websites (grands titres serif, beaucoup d'air, une couleur d'accent), motionsites.ai?prompt=marquee (bandeau défilant). Animation signature : bandeau des spécialités qui défile, plus un titre qui se révèle mot à mot. Désactivé si prefers-reduced-motion.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sushi King, restaurant japonais à Torcy</title>
+<meta name="description" content="Sushi, maki, yakitori et poke bowls à Torcy, Centre Bay 1. Sur place ou à emporter, midi et soir, 7 jours sur 7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#15110f;--bg-2:#1f1916;--ink:#f5efe6;--ink-2:#c9bfb2;--laque:#c2362b;--laque-2:#e04a3d;--line:rgba(245,239,230,.12);
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font:16px/1.55 Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;letter-spacing:-.01em}
+  a{color:inherit}
+  .wrap{width:min(100% - 32px,920px);margin-inline:auto}
+
+  .note{background:#f5efe6;color:#15110f;font-size:13px;text-align:center;padding:8px 16px}
+  .note b{font-weight:600}
+
+  header{position:sticky;top:0;z-index:5;background:rgba(21,17,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+  .brand{font-family:Fraunces,serif;font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase}
+  .brand span{color:var(--laque-2)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;font-weight:600;text-decoration:none;background:var(--laque);color:#fff;transition:background .15s}
+  .btn:hover{background:var(--laque-2)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+  .btn.ghost:hover{background:var(--bg-2)}
+
+  .hero{padding:56px 0 40px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:auto -20% -60% auto;width:70vw;max-width:520px;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,var(--laque) 0,transparent 72%);opacity:.55;pointer-events:none}
+  .kicker{color:var(--laque-2);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+  .hero h1{font-size:clamp(38px,9vw,68px);margin:12px 0 16px}
+  .hero p{color:var(--ink-2);font-size:18px;max-width:34ch}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .pill{display:inline-block;margin-top:22px;padding:8px 14px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+  .pill b{color:var(--ink)}
+
+  .infos{display:grid;gap:12px;grid-template-columns:1fr;margin:8px 0 48px}
+  .card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+  .card h3{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);font-family:Inter,sans-serif;font-weight:600;margin-bottom:8px}
+  .card p{font-size:17px}
+  .card a{text-decoration:none;border-bottom:1px solid var(--laque-2)}
+  @media (min-width:640px){.infos{grid-template-columns:repeat(3,1fr)}}
+
+  section{padding:40px 0;border-top:1px solid var(--line)}
+  section h2{font-size:clamp(28px,6vw,40px);margin-bottom:8px}
+  .lead{color:var(--ink-2);max-width:48ch;margin-bottom:24px}
+  .carte{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+  @media (min-width:640px){.carte{grid-template-columns:repeat(3,1fr)}}
+  .item{padding:16px;border-radius:var(--r);background:var(--bg-2);border:1px solid var(--line);min-height:84px;display:flex;flex-direction:column;justify-content:flex-end}
+  .item small{color:var(--laque-2);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:11px}
+  .item strong{font-family:Fraunces,serif;font-weight:600;font-size:19px;margin-top:4px}
+
+  .menus{display:grid;gap:10px}
+  .menu{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-radius:var(--r);background:var(--bg-2);border:1px solid var(--line)}
+  .menu strong{font-family:Fraunces,serif;font-size:19px;font-weight:600}
+  .menu span{color:var(--ink-2);font-size:14px;text-align:right}
+
+  .venir{background:var(--laque);color:#fff;border-radius:20px;padding:28px 22px;display:grid;gap:14px}
+  .venir h2{color:#fff}
+  .venir p{color:rgba(255,255,255,.85)}
+  .venir .btn{background:#fff;color:var(--laque)}
+  .venir .btn:hover{background:#f5efe6}
+  @media (min-width:640px){.venir{grid-template-columns:1fr auto;align-items:center;padding:36px}}
+
+  footer{padding:28px 0 40px;color:var(--ink-2);font-size:14px;border-top:1px solid var(--line)}
+  footer nav{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:10px}
+  footer a{text-decoration:none;border-bottom:1px solid var(--line)}
+  /* Accent d'origine : un mot japonais vertical, discret */
+  .kanji{position:absolute;right:16px;top:56px;writing-mode:vertical-rl;font-size:44px;line-height:1;color:var(--laque-2);opacity:.28;letter-spacing:.2em;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;user-select:none}
+  @media (min-width:640px){.kanji{right:0;font-size:64px}}
+
+  /* Animation signature : bandeau des spécialités qui défile */
+  .marquee{overflow:hidden;border-block:1px solid var(--line);padding:14px 0;background:var(--bg-2)}
+  .marquee .track{display:flex;gap:40px;width:max-content;animation:defile 28s linear infinite;font-family:Fraunces,serif;font-size:20px;color:var(--ink-2);white-space:nowrap}
+  .marquee .track span::before{content:"◆";color:var(--laque-2);font-size:11px;margin-right:40px;vertical-align:middle}
+  @keyframes defile{to{transform:translateX(-50%)}}
+
+  /* Titre révélé mot à mot, blocs qui apparaissent */
+  .hero h1 .w{display:inline-block;opacity:0;transform:translateY(.6em);animation:monte .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes monte{to{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}.btn{transition:none}
+    .marquee .track{animation:none}
+    .hero h1 .w{opacity:1;transform:none;animation:none}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="note"><b>Maquette</b> proposée par EDFASTCODE pour Sushi King, novembre 2026. Rien n'est en ligne sans votre accord.</div>
+
+<header>
+  <div class="wrap bar">
+    <div class="brand">Sushi <span>King</span></div>
+    <a class="btn" href="tel:+33160376248">Appeler</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <span class="kanji" aria-hidden="true">寿司</span>
+    <p class="kicker">Restaurant japonais, Torcy</p>
+    <h1>Sushis, makis et yakitoris, midi et soir, 7 jours sur 7</h1>
+    <p>Sur place au Centre Bay 1, ou à emporter. Menus midi, bentos, bateaux à partager et poke bowls.</p>
+    <div class="cta">
+      <a class="btn" href="tel:+33160376248">01 60 37 62 48</a>
+      <a class="btn ghost" href="#carte">Voir la carte</a>
+    </div>
+    <p class="pill"><b>-10 % à emporter</b>, sauf menu midi</p>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Sushi</span><span>Maki</span><span>Sashimi</span><span>Yakitori</span><span>Poke bowl</span><span>Menus bateaux</span><span>Bento</span><span>California rolls</span>
+      <span>Sushi</span><span>Maki</span><span>Sashimi</span><span>Yakitori</span><span>Poke bowl</span><span>Menus bateaux</span><span>Bento</span><span>California rolls</span>
+    </div>
+  </div>
+
+  <div class="wrap infos">
+    <div class="card reveal">
+      <h3>Horaires</h3>
+      <p>Du lundi au dimanche<br>Midi 11 h 45 – 14 h 30<br>Soir 18 h 45 – 22 h 30</p>
+    </div>
+    <div class="card reveal">
+      <h3>Adresse</h3>
+      <p><a href="https://www.google.com/maps/search/?api=1&query=Sushi+King+Centre+Bay+1+Torcy" target="_blank" rel="noopener">Centre Bay 1 Loisirs<br>77200 Torcy</a></p>
+    </div>
+    <div class="card reveal">
+      <h3>Téléphone</h3>
+      <p><a href="tel:+33160376248">01 60 37 62 48</a><br><span style="color:var(--ink-2);font-size:14px">Commandes à emporter par téléphone</span></p>
+    </div>
+  </div>
+
+  <section id="carte" class="wrap">
+    <h2>La carte</h2>
+    <p class="lead">Les grandes familles de la carte actuelle. Chaque case pourra ouvrir la liste des plats et des prix.</p>
+    <div class="carte">
+      <div class="item"><small>Pour commencer</small><strong>Entrées</strong></div>
+      <div class="item"><small>Poisson cru</small><strong>Sashimi</strong></div>
+      <div class="item"><small>Classiques</small><strong>Sushi</strong></div>
+      <div class="item"><small>Classiques</small><strong>Maki</strong></div>
+      <div class="item"><small>Neige, printemps, croquante…</small><strong>Rolls</strong></div>
+      <div class="item"><small>Avocat, délice, California</small><strong>Rolls garnis</strong></div>
+      <div class="item"><small>Spécialité</small><strong>Special Tobiko</strong></div>
+      <div class="item"><small>Brochettes</small><strong>Yakitori</strong></div>
+      <div class="item"><small>Bol complet</small><strong>Poke bowl</strong></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>Les menus</h2>
+    <p class="lead">Les formules de la carte actuelle, à retrouver avec leurs prix.</p>
+    <div class="menus">
+      <div class="menu"><strong>Menus midi</strong><span>du lundi au dimanche, le midi</span></div>
+      <div class="menu"><strong>Menus bento</strong><span>le repas complet dans sa boîte</span></div>
+      <div class="menu"><strong>Menus yakitori</strong><span>brochettes, riz et accompagnement</span></div>
+      <div class="menu"><strong>Menus mixtes</strong><span>sushi, maki et brochettes</span></div>
+      <div class="menu"><strong>Menus bateaux</strong><span>à partager, à deux ou plus</span></div>
+      <div class="menu"><strong>Menus spéciaux</strong><span>les grandes faims</span></div>
+      <div class="menu"><strong>Boissons et vins</strong><span>sakés, bières japonaises, vins</span></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="venir">
+      <div>
+        <h2>Une envie de sushis ce soir ?</h2>
+        <p>Appelez pour commander à emporter, ou venez directement au Centre Bay 1. Service jusqu'à 22 h 30.</p>
+      </div>
+      <a class="btn" href="tel:+33160376248">Appeler le restaurant</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav>
+      <a href="#">Mentions légales [à compléter]</a>
+      <a href="#">Politique de confidentialité [à compléter]</a>
+    </nav>
+    <p>Sushi King, Centre Bay 1 Loisirs, 77200 Torcy. 01 60 37 62 48.</p>
+  </div>
+</footer>
+<script>
+  // Titre révélé mot à mot
+  const h=document.querySelector('.hero h1');
+  h.innerHTML=h.textContent.trim().split(' ').map((w,i)=>`<span class="w" style="animation-delay:${80+i*60}ms">${w}</span>`).join(' ');
+  // Blocs qui apparaissent quand ils entrent dans l'écran
+  document.querySelectorAll('.item,.menu,.venir').forEach(e=>e.classList.add('reveal'));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((e,i)=>{e.style.transitionDelay=`${(i%3)*70}ms`;io.observe(e)});
+</script>
+</body>
+</html>
