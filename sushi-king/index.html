@@ -48,7 +48,7 @@ Direction artistique
   .pill{display:inline-block;margin-top:22px;padding:8px 14px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line);font-size:14px;color:var(--ink-2)}
   .pill b{color:var(--ink)}
 
-  .infos{display:grid;gap:12px;grid-template-columns:1fr;margin:8px 0 48px}
+  .infos{display:grid;gap:12px;grid-template-columns:1fr;margin:8px auto 48px}
   .card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:18px}
   .card h3{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);font-family:Inter,sans-serif;font-weight:600;margin-bottom:8px}
   .card p{font-size:17px}
@@ -80,8 +80,8 @@ Direction artistique
   footer nav{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:10px}
   footer a{text-decoration:none;border-bottom:1px solid var(--line)}
   /* Accent d'origine : un mot japonais vertical, discret */
-  .kanji{position:absolute;right:16px;top:56px;writing-mode:vertical-rl;font-size:44px;line-height:1;color:var(--laque-2);opacity:.28;letter-spacing:.2em;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;user-select:none}
-  @media (min-width:640px){.kanji{right:0;font-size:64px}}
+  .kanji{position:absolute;right:8px;bottom:32px;writing-mode:vertical-rl;font-size:40px;line-height:1;color:var(--laque-2);opacity:.28;letter-spacing:.2em;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;user-select:none;pointer-events:none}
+  @media (min-width:640px){.kanji{right:0;bottom:auto;top:56px;font-size:64px}}
 
   /* Animation signature : bandeau des spécialités qui défile */
   .marquee{overflow:hidden;border-block:1px solid var(--line);padding:14px 0;background:var(--bg-2)}
